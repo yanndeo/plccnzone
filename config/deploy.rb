@@ -2,13 +2,13 @@
 lock "~> 3.12.0"
 
 set :application, "plccnzone"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :repo_url, "https://github.com/yanndeo/plccnzone.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, "/var/www/my_app_name"
+ set :deploy_to, "/var/www/vhosts/plccnczone.com/new.plccnczone.com"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -21,10 +21,14 @@ set :repo_url, "git@example.com:me/my_repo.git"
 # set :pty, true
 
 # Default value for :linked_files is []
+append :linked_files, ".env"
 # append :linked_files, "config/database.yml"
 
 # Default value for linked_dirs is []
+append :linked_dirs, "public/uploads"
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+# append :linked_dirs, "public/uploads", "tmp/cache", "tmp/sockets", "public/system"
+
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -33,7 +37,15 @@ set :repo_url, "git@example.com:me/my_repo.git"
 # set :local_user, -> { `git config user.name`.chomp }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 4
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+namespace :deploy do
+    after :updated, :composer do
+        invoke "php:composer"
+        #invoke "symfony:migrate"
+        #invoke "symfony:optimize"
+    end
+end
