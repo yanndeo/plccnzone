@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  */
-class Product
+class Category
 {
     /**
      * @ORM\Id()
@@ -24,7 +24,7 @@ class Product
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $quantity;
+    private $description;
 
     public function getId(): ?int
     {
@@ -43,14 +43,14 @@ class Product
         return $this;
     }
 
-    public function getQuantity(): ?string
+    public function getDescription(): ?string
     {
-        return $this->quantity;
+        return $this->description;
     }
 
-    public function setQuantity(string $quantity): self
+    public function setDescription(string $description): self
     {
-        $this->quantity = $quantity;
+        $this->description = $description;
 
         return $this;
     }
