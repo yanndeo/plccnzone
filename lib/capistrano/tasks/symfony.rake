@@ -15,14 +15,14 @@ namespace :symfony do
     task :optimize do
         on roles(:web) do
             within release_path do
-                execute '/opt/plesk/php/7.2/bin/php', 'bin/console', ':cache', ':clear'
+                execute '/opt/plesk/php/7.2/bin/php', 'bin/console', 'cache:clear'
             end
         end
     end
 
 
 
-
+    desc 'Permissions courante.'
     task :permissions do
         on roles(:web) do
             within release_path do

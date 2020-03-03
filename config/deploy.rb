@@ -43,9 +43,11 @@ set :keep_releases, 3
 # set :ssh_options, verify_host_key: :secure
 
 namespace :deploy do
-    after :updated, :composer do
+    after :updated, :php_sf do
         invoke "php:composer"
         invoke "symfony:migrate"
-        #invoke "symfony:optimize"
+        invoke "symfony:optimize"
     end
+
+    after :finished, 'php:restart_fpm'
 end

@@ -1,4 +1,5 @@
 namespace :php do
+
     desc 'Charge les dépendances de composer'
     task :composer do
         on roles(:web) do
@@ -7,4 +8,16 @@ namespace :php do
             end
         end
     end
+
+
+    desc 'Redemarre PHP7.2'
+    task :restart_fpm do
+        on roles(:web) do
+            sudo :service, 'plesk-php72-fpm', :restart
+        end
+    end
+
+
+
 end
+
