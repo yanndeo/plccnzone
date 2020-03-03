@@ -45,7 +45,7 @@ set :keep_releases, 3
 namespace :deploy do
     after :updated, :composer do
         invoke "php:composer"
-        #invoke "symfony:migrate"
+        invoke "symfony:migrate"
         #invoke "symfony:optimize"
     end
 end

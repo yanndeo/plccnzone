@@ -4,8 +4,8 @@ namespace :symfony do
     task :migrate do
         on roles(:web) do
             within release_path do
-                execute '/opt/plesk/php/7.2/bin/php', 'bin/console', 'make:migration'
-                #execute '/opt/plesk/php/7.2/bin/php', 'bin/console', ':doctrine', ':migrations', ':migrate'
+                #execute '/opt/plesk/php/7.2/bin/php', 'bin/console', 'make:migration'
+                execute '/opt/plesk/php/7.2/bin/php', 'bin/console', ' --no-interaction', 'd:m:m'
             end
         end
     end
