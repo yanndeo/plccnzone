@@ -25,16 +25,16 @@
         "symfony/translation": "4.4.*",
         "symfony/twig-pack": "^1.0",
         "symfony/validator": "4.4.*",
-        "symfony/var-dumper": "4.4.*",
         "symfony/web-link": "4.4.*",
         "symfony/webpack-encore-bundle": "^1.7",
+        "symfony/profiler-pack": "^1.0",
         "symfony/yaml": "4.4.*"
     },
     "require-dev": {
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.14",
-        "symfony/profiler-pack": "^1.0",
         "symfony/test-pack": "*",
+        "symfony/var-dumper": "4.4.*",
         "symfony/web-server-bundle": "4.4.*"
     },
     "config": {
