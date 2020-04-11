@@ -511,3 +511,93 @@ Executing script assets:install public
  DEBUG [0fa7bdf4] 	yarn run v1.22.4
  DEBUG [0fa7bdf4] 	error Couldn't find a package.json file in "/var/www/vhosts/plccnczone.com"
  DEBUG [0fa7bdf4] 	info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-04-11 16:44:48 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [ecb48649] Running /usr/bin/env mkdir -p /tmp as yannick@92.39.246.126
+ DEBUG [ecb48649] Command: /usr/bin/env mkdir -p /tmp
+  INFO [42428e3d] Running /usr/bin/env #<StringIO:0x007fec2a9642b8> /tmp/git-ssh-plccnzone-production-Maranatha.sh as yannick@92.39.246.126
+ DEBUG [42428e3d] Command: /usr/bin/env #<StringIO:0x007fec2a9642b8> /tmp/git-ssh-plccnzone-production-Maranatha.sh
+  INFO [5f60675a] Running /usr/bin/env chmod 700 /tmp/git-ssh-plccnzone-production-Maranatha.sh as yannick@92.39.246.126
+ DEBUG [5f60675a] Command: /usr/bin/env chmod 700 /tmp/git-ssh-plccnzone-production-Maranatha.sh
+  INFO [f3563bc8] Running /usr/bin/env git ls-remote https://github.com/yanndeo/plccnzone.git HEAD as yannick@92.39.246.126
+ DEBUG [f3563bc8] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git ls-remote https://github.com/yanndeo/plccnzone.git HEAD )
+  INFO [05eba4d5] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases as yannick@92.39.246.126
+ DEBUG [05eba4d5] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases
+  INFO [a329b951] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/public/uploads as yannick@92.39.246.126
+ DEBUG [a329b951] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/public/uploads
+  INFO [ced60b1e] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared as yannick@92.39.246.126
+ DEBUG [ced60b1e] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared
+ DEBUG [7cab1536] Running [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/.env ] as yannick@92.39.246.126
+ DEBUG [7cab1536] Command: [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/.env ]
+ DEBUG [fc245cf0] Running [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/current/REVISION ] as yannick@92.39.246.126
+ DEBUG [fc245cf0] Command: [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/current/REVISION ]
+ DEBUG [a13c991b] Running /usr/bin/env cat /var/www/vhosts/plccnczone.com/new.plccnczone.com/current/REVISION 2>/dev/null as yannick@92.39.246.126
+ DEBUG [a13c991b] Command: /usr/bin/env cat /var/www/vhosts/plccnczone.com/new.plccnczone.com/current/REVISION 2>/dev/null
+ DEBUG [5ae1181a] Running [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo/HEAD ] as yannick@92.39.246.126
+ DEBUG [5ae1181a] Command: [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo/HEAD ]
+  INFO The repository mirror is at /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo
+ DEBUG [5fbc9823] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [5fbc9823] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi
+  INFO [0caabf5b] Running /usr/bin/env git remote set-url origin https://github.com/yanndeo/plccnzone.git as yannick@92.39.246.126
+ DEBUG [0caabf5b] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git remote set-url origin https://github.com/yanndeo/plccnzone.git )
+  INFO [5e9cda3e] Running /usr/bin/env git remote update --prune as yannick@92.39.246.126
+ DEBUG [5e9cda3e] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [7363f605] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [7363f605] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi
+  INFO [60b28897] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454 as yannick@92.39.246.126
+ DEBUG [60b28897] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454 )
+  INFO [34995c0f] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454 as yannick@92.39.246.126
+ DEBUG [34995c0f] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454 )
+ DEBUG [bbf311b6] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [bbf311b6] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi
+ DEBUG [a0e31034] Running /usr/bin/env git rev-list --max-count=1 master as yannick@92.39.246.126
+ DEBUG [a0e31034] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [f6fae02a] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [f6fae02a] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454'" 1>&2; false; fi
+  INFO [9de869bb] Running /usr/bin/env echo "" > REVISION as yannick@92.39.246.126
+ DEBUG [9de869bb] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454 && /usr/bin/env echo "" > REVISION
+  INFO [2e381277] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454 as yannick@92.39.246.126
+ DEBUG [2e381277] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454
+ DEBUG [18043e12] Running [ -L /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454/.env ] as yannick@92.39.246.126
+ DEBUG [18043e12] Command: [ -L /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454/.env ]
+  INFO [52863bb5] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454/public as yannick@92.39.246.126
+ DEBUG [52863bb5] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454/public
+ DEBUG [daa40e74] Running [ -L /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454/public/uploads ] as yannick@92.39.246.126
+ DEBUG [daa40e74] Command: [ -L /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454/public/uploads ]
+ DEBUG [1b2dd38f] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [1b2dd38f] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454'" 1>&2; false; fi
+  INFO [681f0d69] Running /usr/bin/env /opt/plesk/php/7.2/bin/php /usr/local/bin/composer install --optimize-autoloader as yannick@92.39.246.126
+ DEBUG [681f0d69] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454 && /usr/bin/env /opt/plesk/php/7.2/bin/php /usr/local/bin/composer install --optimize-autoloader
+ DEBUG [07f6e4d3] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [07f6e4d3] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454'" 1>&2; false; fi
+  INFO [041107aa] Running /usr/bin/env /opt/plesk/php/7.2/bin/php bin/console  --no-interaction d:m:m as yannick@92.39.246.126
+ DEBUG [041107aa] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454 && /usr/bin/env /opt/plesk/php/7.2/bin/php bin/console  --no-interaction d:m:m
+ DEBUG [a30ca06e] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [a30ca06e] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454'" 1>&2; false; fi
+  INFO [8c203cfb] Running yarn install as yannick@92.39.246.126
+ DEBUG [8c203cfb] Command: yarn install
+ DEBUG [47773027] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [47773027] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454'" 1>&2; false; fi
+  INFO [498aeeb2] Running yarn cache clean as yannick@92.39.246.126
+ DEBUG [498aeeb2] Command: yarn cache clean
+ DEBUG [63160498] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [63160498] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454'" 1>&2; false; fi
+  INFO [b09610b9] Running yarn build as yannick@92.39.246.126
+ DEBUG [b09610b9] Command: yarn build
+ DEBUG [868b9b42] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [868b9b42] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454'" 1>&2; false; fi
+  INFO [f6223182] Running /usr/bin/env /opt/plesk/php/7.2/bin/php bin/console cache:clear as yannick@92.39.246.126
+ DEBUG [f6223182] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454 && /usr/bin/env /opt/plesk/php/7.2/bin/php bin/console cache:clear
+  INFO [e60584d2] Running /usr/bin/env ln -s /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454 /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/current as yannick@92.39.246.126
+ DEBUG [e60584d2] Command: /usr/bin/env ln -s /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411154454 /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/current
+  INFO [9c2b51a7] Running /usr/bin/env mv /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/current /var/www/vhosts/plccnczone.com/new.plccnczone.com as yannick@92.39.246.126
+ DEBUG [9c2b51a7] Command: /usr/bin/env mv /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/current /var/www/vhosts/plccnczone.com/new.plccnczone.com
+ DEBUG [979ace44] Running /usr/bin/env ls -x /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases as yannick@92.39.246.126
+ DEBUG [979ace44] Command: /usr/bin/env ls -x /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases
+ DEBUG [a58a1aa0] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [a58a1aa0] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases'" 1>&2; false; fi
+  INFO [8b5a0dc9] Running /usr/bin/env echo "Branch master (at ) deployed as release 20200411154454 by Maranatha" >> /var/www/vhosts/plccnczone.com/new.plccnczone.com/revisions.log as yannick@92.39.246.126
+ DEBUG [8b5a0dc9] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases && /usr/bin/env echo "Branch master (at ) deployed as release 20200411154454 by Maranatha" >> /var/www/vhosts/plccnczone.com/new.plccnczone.com/revisions.log
+  INFO [5199279f] Running /usr/bin/env sudo service plesk-php72-fpm restart as yannick@92.39.246.126
+ DEBUG [5199279f] Command: /usr/bin/env sudo service plesk-php72-fpm restart
