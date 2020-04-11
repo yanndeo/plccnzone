@@ -44,14 +44,14 @@ set :keep_releases, 3
 
 namespace :deploy do
 
-    before :starting, 'webapp:manifest'
+    before :starting, :webapp do
 
     after :updated, :php_sf do
         invoke "php:composer"
         invoke "symfony:migrate"
         invoke "symfony:optimize"
-        invoke "webapp:install"
-        invoke "webapp:optimize"
+        #invoke "webapp:install"
+        #invoke "webapp:optimize"
     end
 
     after :finished, 'php:restart_fpm'
