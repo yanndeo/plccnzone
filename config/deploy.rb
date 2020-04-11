@@ -46,10 +46,10 @@ namespace :deploy do
     after :updated, :php_sf do
         invoke "php:composer"
         invoke "symfony:migrate"
-        invoke "symfony:optimize"
         invoke "webapp:install"
         invoke "webapp:optimize"
         invoke "webapp:manifest"
+        invoke "symfony:optimize"
     end
 
     after :finished, 'php:restart_fpm'
