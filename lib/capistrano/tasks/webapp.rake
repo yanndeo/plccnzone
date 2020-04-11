@@ -3,7 +3,7 @@ namespace :webapp do
     desc 'Installation des dependances js.'
     task :install do
         on roles(:web) do
-            within release_path do
+            within current_path do
                 execute 'yarn install'
             end
         end
@@ -13,7 +13,7 @@ namespace :webapp do
     desc 'Cache clear js.'
     task :optimize do
         on roles(:web) do
-            within release_path do
+            within current_path do
                 execute 'yarn cache clean'
             end
         end
@@ -23,7 +23,7 @@ namespace :webapp do
     desc 'Webpack Encore production.'
     task :manifest do
         on roles(:web) do
-            within release_path do
+            within current_path do
                 execute 'yarn build'
             end
         end
