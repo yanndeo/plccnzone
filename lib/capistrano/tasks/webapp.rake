@@ -10,6 +10,16 @@ namespace :webapp do
     end
 
 
+    desc 'Cache clear js.'
+    task :manifest do
+        on roles(:web) do
+            within release_path do
+                execute 'yarn cache clean'
+            end
+        end
+    end
+
+
     desc 'Webpack Encore production.'
     task :manifest do
         on roles(:web) do
