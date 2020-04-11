@@ -43,6 +43,9 @@ set :keep_releases, 3
 # set :ssh_options, verify_host_key: :secure
 
 namespace :deploy do
+    before :starting, 'webapp:manifest' do
+  end
+
     after :updated, :php_sf do
         invoke "php:composer"
         invoke "symfony:migrate"
