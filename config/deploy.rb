@@ -45,6 +45,7 @@ set :keep_releases, 3
 namespace :deploy do
 
     before :starting, :webapp do
+    end
 
     after :updated, :php_sf do
         invoke "php:composer"
