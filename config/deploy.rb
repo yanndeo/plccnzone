@@ -48,6 +48,7 @@ namespace :deploy do
         invoke "symfony:migrate"
         invoke "symfony:optimize"
         invoke "webapp:install"
+        invoke "webapp:optimize"
         invoke "webapp:manifest"
 
     end

@@ -11,7 +11,7 @@ namespace :webapp do
 
 
     desc 'Cache clear js.'
-    task :manifest do
+    task :optimize do
         on roles(:web) do
             within release_path do
                 execute 'yarn cache clean'
