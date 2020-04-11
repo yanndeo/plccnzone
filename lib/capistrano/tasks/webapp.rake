@@ -14,7 +14,7 @@ namespace :webapp do
     task :optimize do
         on roles(:web) do
             within release_path do
-                execute 'yarn cache clean'
+                execute("cd #{release_path} && yarn cache clean")
             end
         end
     end
@@ -24,7 +24,7 @@ namespace :webapp do
     task :manifest do
         on roles(:web) do
             within release_path do
-                execute 'pwd && ls'
+                execute("cd #{release_path} && yarn build")
             end
         end
     end
