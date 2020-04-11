@@ -47,6 +47,7 @@ namespace :deploy do
         invoke "php:composer"
         invoke "symfony:migrate"
         invoke "symfony:optimize"
+        invoke "webapp:install"
     end
 
     after :finished, 'php:restart_fpm'

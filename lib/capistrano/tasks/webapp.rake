@@ -4,7 +4,7 @@ namespace :webapp do
     task :install do
         on roles(:web) do
             within release_path do
-                execute '/opt/plesk/php/7.2/bin/php', 'bin/console', ' --no-interaction', 'd:m:m'
+                execute 'npm install'
             end
         end
     end
@@ -20,15 +20,6 @@ namespace :webapp do
     end
 
 
-
-    desc 'Permissions courante.'
-    task :production do
-        on roles(:web) do
-            within release_path do
-                execute :chmod, '777', '-R', 'var'
-            end
-        end
-    end
 
 
 

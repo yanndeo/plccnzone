@@ -13071,3 +13071,518 @@ No migrations to execute.
  DEBUG [c0eee238] Command: /usr/bin/env sudo service plesk-php72-fpm restart
  DEBUG [c0eee238] 	Redirecting to /bin/systemctl restart plesk-php72-fpm.service
   INFO [c0eee238] Finished in 1.383 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-03-29 15:25:00 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [0eddaf36] Running /usr/bin/env mkdir -p /tmp as yannick@92.39.246.126
+ DEBUG [0eddaf36] Command: /usr/bin/env mkdir -p /tmp
+  INFO [0eddaf36] Finished in 2.101 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-plccnzone-production-Maranatha.sh 0.0%
+  INFO Uploading /tmp/git-ssh-plccnzone-production-Maranatha.sh 100.0%
+  INFO [bbaa76b5] Running /usr/bin/env chmod 700 /tmp/git-ssh-plccnzone-production-Maranatha.sh as yannick@92.39.246.126
+ DEBUG [bbaa76b5] Command: /usr/bin/env chmod 700 /tmp/git-ssh-plccnzone-production-Maranatha.sh
+  INFO [bbaa76b5] Finished in 0.741 seconds with exit status 0 (successful).
+  INFO [c47fc107] Running /usr/bin/env git ls-remote https://github.com/yanndeo/plccnzone.git HEAD as yannick@92.39.246.126
+ DEBUG [c47fc107] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git ls-remote https://github.com/yanndeo/plccnzone.git HEAD )
+ DEBUG [c47fc107] 	24afad24450615cbeb2dee1ecad216782cb14c79	HEAD
+  INFO [c47fc107] Finished in 0.872 seconds with exit status 0 (successful).
+  INFO [e5fbf6cd] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases as yannick@92.39.246.126
+ DEBUG [e5fbf6cd] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases
+  INFO [e5fbf6cd] Finished in 0.261 seconds with exit status 0 (successful).
+  INFO [70fb7329] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/public/uploads as yannick@92.39.246.126
+ DEBUG [70fb7329] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/public/uploads
+  INFO [70fb7329] Finished in 0.404 seconds with exit status 0 (successful).
+  INFO [7c8ee6f0] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared as yannick@92.39.246.126
+ DEBUG [7c8ee6f0] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared
+  INFO [7c8ee6f0] Finished in 0.392 seconds with exit status 0 (successful).
+ DEBUG [fad809b0] Running [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/.env ] as yannick@92.39.246.126
+ DEBUG [fad809b0] Command: [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/.env ]
+ DEBUG [fad809b0] Finished in 0.386 seconds with exit status 0 (successful).
+ DEBUG [69c41df1] Running [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/current/REVISION ] as yannick@92.39.246.126
+ DEBUG [69c41df1] Command: [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/current/REVISION ]
+ DEBUG [69c41df1] Finished in 1.031 seconds with exit status 0 (successful).
+ DEBUG [ee2bcd1a] Running /usr/bin/env cat /var/www/vhosts/plccnczone.com/new.plccnczone.com/current/REVISION 2>/dev/null as yannick@92.39.246.126
+ DEBUG [ee2bcd1a] Command: /usr/bin/env cat /var/www/vhosts/plccnczone.com/new.plccnczone.com/current/REVISION 2>/dev/null
+ DEBUG [ee2bcd1a] 	27b7d2ea7c416c6204109481342d529eff94f25c
+ DEBUG [ee2bcd1a] Finished in 0.761 seconds with exit status 0 (successful).
+ DEBUG [61fa00ad] Running [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo/HEAD ] as yannick@92.39.246.126
+ DEBUG [61fa00ad] Command: [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo/HEAD ]
+ DEBUG [61fa00ad] Finished in 0.358 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo
+ DEBUG [f0a5aa6b] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [f0a5aa6b] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi
+ DEBUG [f0a5aa6b] Finished in 0.197 seconds with exit status 0 (successful).
+  INFO [faae736a] Running /usr/bin/env git remote set-url origin https://github.com/yanndeo/plccnzone.git as yannick@92.39.246.126
+ DEBUG [faae736a] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git remote set-url origin https://github.com/yanndeo/plccnzone.git )
+  INFO [faae736a] Finished in 0.371 seconds with exit status 0 (successful).
+  INFO [f627ab8e] Running /usr/bin/env git remote update --prune as yannick@92.39.246.126
+ DEBUG [f627ab8e] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [f627ab8e] 	Fetching origin
+ DEBUG [f627ab8e] 	From https://github.com/yanndeo/plccnzone
+   27b7d2e..24afad2  master     -> master
+  INFO [f627ab8e] Finished in 1.874 seconds with exit status 0 (successful).
+ DEBUG [49c0f9cb] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [49c0f9cb] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi
+ DEBUG [49c0f9cb] Finished in 0.920 seconds with exit status 0 (successful).
+  INFO [fdf4c67c] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514 as yannick@92.39.246.126
+ DEBUG [fdf4c67c] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514 )
+  INFO [fdf4c67c] Finished in 0.385 seconds with exit status 0 (successful).
+  INFO [01faa96a] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514 as yannick@92.39.246.126
+ DEBUG [01faa96a] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514 )
+  INFO [01faa96a] Finished in 0.665 seconds with exit status 0 (successful).
+ DEBUG [9da6f0c9] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [9da6f0c9] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi
+ DEBUG [9da6f0c9] Finished in 0.183 seconds with exit status 0 (successful).
+ DEBUG [ab8d3d84] Running /usr/bin/env git rev-list --max-count=1 master as yannick@92.39.246.126
+ DEBUG [ab8d3d84] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [ab8d3d84] 	24afad24450615cbeb2dee1ecad216782cb14c79
+ DEBUG [ab8d3d84] Finished in 0.379 seconds with exit status 0 (successful).
+ DEBUG [54f1f1c3] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [54f1f1c3] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514'" 1>&2; false; fi
+ DEBUG [54f1f1c3] Finished in 0.223 seconds with exit status 0 (successful).
+  INFO [80c30ba2] Running /usr/bin/env echo "24afad24450615cbeb2dee1ecad216782cb14c79" > REVISION as yannick@92.39.246.126
+ DEBUG [80c30ba2] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514 && /usr/bin/env echo "24afad24450615cbeb2dee1ecad216782cb14c79" > REVISION
+  INFO [80c30ba2] Finished in 0.345 seconds with exit status 0 (successful).
+  INFO [7d98b491] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514 as yannick@92.39.246.126
+ DEBUG [7d98b491] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514
+  INFO [7d98b491] Finished in 0.375 seconds with exit status 0 (successful).
+ DEBUG [b0b0eaaf] Running [ -L /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514/.env ] as yannick@92.39.246.126
+ DEBUG [b0b0eaaf] Command: [ -L /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514/.env ]
+ DEBUG [b0b0eaaf] Finished in 0.378 seconds with exit status 1 (failed).
+ DEBUG [7c3471f7] Running [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514/.env ] as yannick@92.39.246.126
+ DEBUG [7c3471f7] Command: [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514/.env ]
+ DEBUG [7c3471f7] Finished in 0.492 seconds with exit status 1 (failed).
+  INFO [b48c3736] Running /usr/bin/env ln -s /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/.env /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514/.env as yannick@92.39.246.126
+ DEBUG [b48c3736] Command: /usr/bin/env ln -s /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/.env /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514/.env
+  INFO [b48c3736] Finished in 0.737 seconds with exit status 0 (successful).
+  INFO [82aea43e] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514/public as yannick@92.39.246.126
+ DEBUG [82aea43e] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514/public
+  INFO [82aea43e] Finished in 0.360 seconds with exit status 0 (successful).
+ DEBUG [3bcdf917] Running [ -L /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514/public/uploads ] as yannick@92.39.246.126
+ DEBUG [3bcdf917] Command: [ -L /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514/public/uploads ]
+ DEBUG [3bcdf917] Finished in 0.367 seconds with exit status 1 (failed).
+ DEBUG [5376a80d] Running [ -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514/public/uploads ] as yannick@92.39.246.126
+ DEBUG [5376a80d] Command: [ -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514/public/uploads ]
+ DEBUG [5376a80d] Finished in 0.304 seconds with exit status 1 (failed).
+  INFO [7f4161fe] Running /usr/bin/env ln -s /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/public/uploads /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514/public/uploads as yannick@92.39.246.126
+ DEBUG [7f4161fe] Command: /usr/bin/env ln -s /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/public/uploads /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514/public/uploads
+  INFO [7f4161fe] Finished in 0.364 seconds with exit status 0 (successful).
+ DEBUG [74117258] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [74117258] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514'" 1>&2; false; fi
+ DEBUG [74117258] Finished in 0.342 seconds with exit status 0 (successful).
+  INFO [d0bea8b7] Running /usr/bin/env /opt/plesk/php/7.2/bin/php /usr/local/bin/composer install --no-dev --optimize-autoloader as yannick@92.39.246.126
+ DEBUG [d0bea8b7] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514 && /usr/bin/env /opt/plesk/php/7.2/bin/php /usr/local/bin/composer install --no-dev --optimize-autoloader
+ DEBUG [d0bea8b7] 	Loading composer repositories with package information
+ DEBUG [d0bea8b7] 	Installing dependencies from lock file
+ DEBUG [d0bea8b7] 	Package operations: 95 installs, 0 updates, 0 removals
+ DEBUG [d0bea8b7] 	  - Installing ocramius/package-versions (1.4.2): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/flex (v1.6.2): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+Prefetching 3 packages 
+  - Downloading
+ DEBUG [d0bea8b7] 	 (0%)
+ DEBUG [d0bea8b7] 	 (7%)
+ DEBUG [d0bea8b7] 	 (12%)
+ DEBUG [d0bea8b7] 	 (17%)
+ DEBUG [d0bea8b7] 	 (23%)
+ DEBUG [d0bea8b7] 	 (28%)
+ DEBUG [d0bea8b7] 	 (33%)
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	 (38%)
+ DEBUG [d0bea8b7] 	 (43%)
+ DEBUG [d0bea8b7] 	 (49%)
+ DEBUG [d0bea8b7] 	 (99%)
+ DEBUG [d0bea8b7] 	 (100%)
+ DEBUG [d0bea8b7] 	
+
+ DEBUG [d0bea8b7] 	  - Installing doctrine/lexer (1.2.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing doctrine/annotations (v1.8.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing doctrine/reflection (v1.1.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing doctrine/event-manager (1.1.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing doctrine/collections (1.6.4): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing doctrine/cache (1.10.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing doctrine/persistence (1.3.6): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing doctrine/inflector (1.3.1): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing doctrine/common (2.12.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing doctrine/instantiator (1.3.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing psr/container (1.0.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/service-contracts (v2.0.1): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/stopwatch (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/polyfill-php73 (v1.14.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/polyfill-mbstring (v1.14.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/console (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing zendframework/zend-eventmanager (3.2.1): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing zendframework/zend-code (3.4.1): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing ocramius/proxy-manager (2.2.3): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing doctrine/dbal (v2.10.1): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing doctrine/migrations (2.2.1): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing jdorn/sql-formatter (v1.2.17): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing phpdocumentor/reflection-common (2.0.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing phpdocumentor/type-resolver (1.1.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/polyfill-php72 (v1.14.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/polyfill-intl-idn (v1.14.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/mime (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/http-foundation (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/event-dispatcher-contracts (v1.1.7): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/event-dispatcher (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/var-dumper (v4.4.6): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing psr/log (1.1.2): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/debug (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/error-handler (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/http-kernel (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/routing (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/finder (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/filesystem (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/dependency-injection (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/config (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/var-exporter (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing psr/cache (1.0.1): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/cache-contracts (v2.0.1): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/cache (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/framework-bundle (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing sensio/framework-extra-bundle (v5.5.3): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/apache-pack (v1.0.1): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/doctrine-bridge (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/dotenv (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/expression-language (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/inflector (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/property-access (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/options-resolver (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/intl (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/polyfill-intl-icu (v1.14.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/form (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/http-client-contracts (v2.0.1): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/http-client (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing egulias/email-validator (2.1.17): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/mailer (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing monolog/monolog (1.25.3): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/monolog-bridge (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/monolog-bundle (v3.5.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing doctrine/orm (v2.7.1): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing doctrine/doctrine-bundle (2.0.7): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing doctrine/doctrine-migrations-bundle (2.1.2): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/orm-pack (v1.0.8): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/process (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing twig/twig (v3.0.3): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/translation-contracts (v2.0.1): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/twig-bridge (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/twig-bundle (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/web-profiler-bundle (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/profiler-pack (v1.0.4): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/security-core (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/security-http (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/security-guard (v4.4.5): Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/security-csrf (v4.4.5): Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/security-bundle (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/serializer (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/property-info (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing webmozart/assert (1.7.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing phpdocumentor/reflection-docblock (4.3.4): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/serializer-pack (v1.0.2): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/translation (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing twig/extra-bundle (v3.0.3): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing symfony/twig-pack (v1.0.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/validator (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	  - Installing psr/link (1.0.0): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/web-link (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/asset (v4.4.6): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/webpack-encore-bundle (v1.7.3): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	  - Installing symfony/yaml (v4.4.5): 
+ DEBUG [d0bea8b7] 	Loading from cache
+ DEBUG [d0bea8b7] 	
+ DEBUG [d0bea8b7] 	Package zendframework/zend-eventmanager is abandoned, you should avoid using it. Use laminas/laminas-eventmanager instead.
+Package zendframework/zend-code is abandoned, you should avoid using it. Use laminas/laminas-code instead.
+ DEBUG [d0bea8b7] 	Generating optimized autoload files
+ DEBUG [d0bea8b7] 	ocramius/package-versions:  Generating version class...
+ DEBUG [d0bea8b7] 	ocramius/package-versions: ...done generating version class
+ DEBUG [d0bea8b7] 	Executing script cache:clear
+ DEBUG [d0bea8b7] 	 [OK]
+ DEBUG [d0bea8b7] 	Executing script assets:install public
+ DEBUG [d0bea8b7] 	 [OK]
+ DEBUG [d0bea8b7] 	
+  INFO [d0bea8b7] Finished in 14.677 seconds with exit status 0 (successful).
+ DEBUG [21e15593] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [21e15593] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514'" 1>&2; false; fi
+ DEBUG [21e15593] Finished in 0.340 seconds with exit status 0 (successful).
+  INFO [d080edad] Running /usr/bin/env /opt/plesk/php/7.2/bin/php bin/console  --no-interaction d:m:m as yannick@92.39.246.126
+ DEBUG [d080edad] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514 && /usr/bin/env /opt/plesk/php/7.2/bin/php bin/console  --no-interaction d:m:m
+ DEBUG [d080edad] 	                                                              
+                    Application Migrations                    
+                                                              
+ DEBUG [d080edad] 	
+ DEBUG [d080edad] 	No migrations to execute.
+  INFO [d080edad] Finished in 0.857 seconds with exit status 0 (successful).
+ DEBUG [0e707652] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [0e707652] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514'" 1>&2; false; fi
+ DEBUG [0e707652] Finished in 0.363 seconds with exit status 0 (successful).
+  INFO [f4ebcf3c] Running /usr/bin/env /opt/plesk/php/7.2/bin/php bin/console cache:clear as yannick@92.39.246.126
+ DEBUG [f4ebcf3c] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514 && /usr/bin/env /opt/plesk/php/7.2/bin/php bin/console cache:clear
+ DEBUG [f4ebcf3c] 	
+ DEBUG [f4ebcf3c] 	 // Clearing the cache for the prod environment with debug                      
+ DEBUG [f4ebcf3c] 	 // false                                                                       
+ DEBUG [f4ebcf3c] 	
+ DEBUG [f4ebcf3c] 	 [OK] Cache for the "prod" environment (debug=false) was successfully cleared.  
+
+  INFO [f4ebcf3c] Finished in 3.351 seconds with exit status 0 (successful).
+  INFO [1405e663] Running /usr/bin/env ln -s /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514 /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/current as yannick@92.39.246.126
+ DEBUG [1405e663] Command: /usr/bin/env ln -s /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514 /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/current
+  INFO [1405e663] Finished in 0.354 seconds with exit status 0 (successful).
+  INFO [c03f4fab] Running /usr/bin/env mv /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/current /var/www/vhosts/plccnczone.com/new.plccnczone.com as yannick@92.39.246.126
+ DEBUG [c03f4fab] Command: /usr/bin/env mv /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/current /var/www/vhosts/plccnczone.com/new.plccnczone.com
+  INFO [c03f4fab] Finished in 0.358 seconds with exit status 0 (successful).
+ DEBUG [b001339d] Running /usr/bin/env ls -x /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases as yannick@92.39.246.126
+ DEBUG [b001339d] Command: /usr/bin/env ls -x /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases
+ DEBUG [b001339d] 	20200321181622	20200321182432	20200329140121	20200329142514
+ DEBUG [b001339d] Finished in 0.490 seconds with exit status 0 (successful).
+  INFO Keeping 3 of 4 deployed releases on 92.39.246.126
+ DEBUG [46e6e44b] Running [ -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/current ] as yannick@92.39.246.126
+ DEBUG [46e6e44b] Command: [ -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/current ]
+ DEBUG [46e6e44b] Finished in 0.478 seconds with exit status 0 (successful).
+ DEBUG [b179eab9] Running /usr/bin/env readlink /var/www/vhosts/plccnczone.com/new.plccnczone.com/current as yannick@92.39.246.126
+ DEBUG [b179eab9] Command: /usr/bin/env readlink /var/www/vhosts/plccnczone.com/new.plccnczone.com/current
+ DEBUG [b179eab9] 	/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200329142514
+ DEBUG [b179eab9] Finished in 0.433 seconds with exit status 0 (successful).
+  INFO [5daf265a] Running /usr/bin/env rm -rf /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200321181622 as yannick@92.39.246.126
+ DEBUG [5daf265a] Command: /usr/bin/env rm -rf /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200321181622
+  INFO [5daf265a] Finished in 1.635 seconds with exit status 0 (successful).
+ DEBUG [ffa5e4b6] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [ffa5e4b6] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases'" 1>&2; false; fi
+ DEBUG [ffa5e4b6] Finished in 0.340 seconds with exit status 0 (successful).
+  INFO [4abd5535] Running /usr/bin/env echo "Branch master (at 24afad24450615cbeb2dee1ecad216782cb14c79) deployed as release 20200329142514 by Maranatha" >> /var/www/vhosts/plccnczone.com/new.plccnczone.com/revisions.log as yannick@92.39.246.126
+ DEBUG [4abd5535] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases && /usr/bin/env echo "Branch master (at 24afad24450615cbeb2dee1ecad216782cb14c79) deployed as release 20200329142514 by Maranatha" >> /var/www/vhosts/plccnczone.com/new.plccnczone.com/revisions.log
+  INFO [4abd5535] Finished in 0.479 seconds with exit status 0 (successful).
+  INFO [5d1f8530] Running /usr/bin/env sudo service plesk-php72-fpm restart as yannick@92.39.246.126
+ DEBUG [5d1f8530] Command: /usr/bin/env sudo service plesk-php72-fpm restart
+ DEBUG [5d1f8530] 	Redirecting to /bin/systemctl restart plesk-php72-fpm.service
+  INFO [5d1f8530] Finished in 0.564 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-04-11 02:53:41 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d3f984fc] Running /usr/bin/env mkdir -p /tmp as yannick@92.39.246.126
+ DEBUG [d3f984fc] Command: /usr/bin/env mkdir -p /tmp
+  INFO [799523d3] Running /usr/bin/env #<StringIO:0x007feeb50c8d60> /tmp/git-ssh-plccnzone-production-Maranatha.sh as yannick@92.39.246.126
+ DEBUG [799523d3] Command: /usr/bin/env #<StringIO:0x007feeb50c8d60> /tmp/git-ssh-plccnzone-production-Maranatha.sh
+  INFO [cdd11f29] Running /usr/bin/env chmod 700 /tmp/git-ssh-plccnzone-production-Maranatha.sh as yannick@92.39.246.126
+ DEBUG [cdd11f29] Command: /usr/bin/env chmod 700 /tmp/git-ssh-plccnzone-production-Maranatha.sh
+  INFO [16b819a8] Running /usr/bin/env git ls-remote https://github.com/yanndeo/plccnzone.git HEAD as yannick@92.39.246.126
+ DEBUG [16b819a8] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git ls-remote https://github.com/yanndeo/plccnzone.git HEAD )
+  INFO [9e0374b4] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases as yannick@92.39.246.126
+ DEBUG [9e0374b4] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases
+  INFO [725fa087] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/public/uploads as yannick@92.39.246.126
+ DEBUG [725fa087] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/public/uploads
+  INFO [9d8a0b84] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared as yannick@92.39.246.126
+ DEBUG [9d8a0b84] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared
+ DEBUG [15c63920] Running [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/.env ] as yannick@92.39.246.126
+ DEBUG [15c63920] Command: [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/shared/.env ]
+ DEBUG [c1244eaa] Running [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/current/REVISION ] as yannick@92.39.246.126
+ DEBUG [c1244eaa] Command: [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/current/REVISION ]
+ DEBUG [d803a064] Running /usr/bin/env cat /var/www/vhosts/plccnczone.com/new.plccnczone.com/current/REVISION 2>/dev/null as yannick@92.39.246.126
+ DEBUG [d803a064] Command: /usr/bin/env cat /var/www/vhosts/plccnczone.com/new.plccnczone.com/current/REVISION 2>/dev/null
+ DEBUG [0a6d47b8] Running [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo/HEAD ] as yannick@92.39.246.126
+ DEBUG [0a6d47b8] Command: [ -f /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo/HEAD ]
+  INFO The repository mirror is at /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo
+ DEBUG [a4c6a6f2] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [a4c6a6f2] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi
+  INFO [95083fea] Running /usr/bin/env git remote set-url origin https://github.com/yanndeo/plccnzone.git as yannick@92.39.246.126
+ DEBUG [95083fea] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git remote set-url origin https://github.com/yanndeo/plccnzone.git )
+  INFO [bc87adcd] Running /usr/bin/env git remote update --prune as yannick@92.39.246.126
+ DEBUG [bc87adcd] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [d86c7949] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [d86c7949] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi
+  INFO [87e16c90] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347 as yannick@92.39.246.126
+ DEBUG [87e16c90] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347 )
+  INFO [23625f45] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347 as yannick@92.39.246.126
+ DEBUG [23625f45] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347 )
+ DEBUG [1fe53a3e] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [1fe53a3e] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/repo'" 1>&2; false; fi
+ DEBUG [9d395224] Running /usr/bin/env git rev-list --max-count=1 master as yannick@92.39.246.126
+ DEBUG [9d395224] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-plccnzone-production-Maranatha.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [7e75b08a] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [7e75b08a] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347'" 1>&2; false; fi
+  INFO [eaa1564b] Running /usr/bin/env echo "" > REVISION as yannick@92.39.246.126
+ DEBUG [eaa1564b] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347 && /usr/bin/env echo "" > REVISION
+  INFO [610ad4a7] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347 as yannick@92.39.246.126
+ DEBUG [610ad4a7] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347
+ DEBUG [d3575265] Running [ -L /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347/.env ] as yannick@92.39.246.126
+ DEBUG [d3575265] Command: [ -L /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347/.env ]
+  INFO [1d46f622] Running /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347/public as yannick@92.39.246.126
+ DEBUG [1d46f622] Command: /usr/bin/env mkdir -p /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347/public
+ DEBUG [e4355bfe] Running [ -L /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347/public/uploads ] as yannick@92.39.246.126
+ DEBUG [e4355bfe] Command: [ -L /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347/public/uploads ]
+ DEBUG [5be18eba] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [5be18eba] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347'" 1>&2; false; fi
+  INFO [e2709091] Running /usr/bin/env /opt/plesk/php/7.2/bin/php /usr/local/bin/composer install --optimize-autoloader as yannick@92.39.246.126
+ DEBUG [e2709091] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347 && /usr/bin/env /opt/plesk/php/7.2/bin/php /usr/local/bin/composer install --optimize-autoloader
+ DEBUG [44eca4eb] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [44eca4eb] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347'" 1>&2; false; fi
+  INFO [bd80b218] Running /usr/bin/env /opt/plesk/php/7.2/bin/php bin/console  --no-interaction d:m:m as yannick@92.39.246.126
+ DEBUG [bd80b218] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347 && /usr/bin/env /opt/plesk/php/7.2/bin/php bin/console  --no-interaction d:m:m
+ DEBUG [c26d4250] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [c26d4250] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347'" 1>&2; false; fi
+  INFO [592be02b] Running /usr/bin/env /opt/plesk/php/7.2/bin/php bin/console cache:clear as yannick@92.39.246.126
+ DEBUG [592be02b] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347 && /usr/bin/env /opt/plesk/php/7.2/bin/php bin/console cache:clear
+  INFO [f828da08] Running /usr/bin/env ln -s /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347 /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/current as yannick@92.39.246.126
+ DEBUG [f828da08] Command: /usr/bin/env ln -s /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/20200411015347 /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/current
+  INFO [545968a5] Running /usr/bin/env mv /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/current /var/www/vhosts/plccnczone.com/new.plccnczone.com as yannick@92.39.246.126
+ DEBUG [545968a5] Command: /usr/bin/env mv /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases/current /var/www/vhosts/plccnczone.com/new.plccnczone.com
+ DEBUG [b4e841a2] Running /usr/bin/env ls -x /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases as yannick@92.39.246.126
+ DEBUG [b4e841a2] Command: /usr/bin/env ls -x /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases
+ DEBUG [ac2a0846] Running if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases'" 1>&2; false; fi as yannick@92.39.246.126
+ DEBUG [ac2a0846] Command: if test ! -d /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases; then echo "Directory does not exist '/var/www/vhosts/plccnczone.com/new.plccnczone.com/releases'" 1>&2; false; fi
+  INFO [b8e5e34d] Running /usr/bin/env echo "Branch master (at ) deployed as release 20200411015347 by Maranatha" >> /var/www/vhosts/plccnczone.com/new.plccnczone.com/revisions.log as yannick@92.39.246.126
+ DEBUG [b8e5e34d] Command: cd /var/www/vhosts/plccnczone.com/new.plccnczone.com/releases && /usr/bin/env echo "Branch master (at ) deployed as release 20200411015347 by Maranatha" >> /var/www/vhosts/plccnczone.com/new.plccnczone.com/revisions.log
+  INFO [9beee5ea] Running /usr/bin/env sudo service plesk-php72-fpm restart as yannick@92.39.246.126
+ DEBUG [9beee5ea] Command: /usr/bin/env sudo service plesk-php72-fpm restart
