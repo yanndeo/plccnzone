@@ -49,7 +49,7 @@ namespace :deploy do
         invoke "symfony:migrate"
         invoke "symfony:optimize"
         invoke "webapp:install"
-        invoke "webapp:manifest"
+        #invoke "webapp:manifest"
     end
 
     after :finished, 'php:restart_fpm'

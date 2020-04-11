@@ -4,7 +4,7 @@ namespace :webapp do
     task :install do
         on roles(:web) do
             within release_path do
-                execute 'yarn install'
+                execute("cd #{release_path} && yarn install")
             end
         end
     end
