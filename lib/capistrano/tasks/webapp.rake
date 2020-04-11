@@ -24,7 +24,7 @@ namespace :webapp do
     task :manifest do
         on roles(:web) do
             within release_path do
-                execute 'yarn build'
+                execute :cd, 'current', 'yarn build'
             end
         end
     end

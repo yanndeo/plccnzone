@@ -50,7 +50,6 @@ namespace :deploy do
         invoke "webapp:install"
         invoke "webapp:optimize"
         invoke "webapp:manifest"
-
     end
 
     after :finished, 'php:restart_fpm'
