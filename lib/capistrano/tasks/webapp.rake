@@ -4,17 +4,17 @@ namespace :webapp do
     task :install do
         on roles(:web) do
             within release_path do
-                execute 'npm install'
+                execute 'yarn install'
             end
         end
     end
 
 
-    desc 'Optimisation courante.'
-    task :optimize do
+    desc 'Webpack Encore production.'
+    task :manifest do
         on roles(:web) do
             within release_path do
-                execute '/opt/plesk/php/7.2/bin/php', 'bin/console', 'cache:clear'
+                execute 'yarn build'
             end
         end
     end
