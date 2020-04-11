@@ -43,7 +43,7 @@ set :keep_releases, 3
 # set :ssh_options, verify_host_key: :secure
 
 namespace :deploy do
-    
+
     before :starting, 'webapp:manifest'
 
     after :updated, :php_sf do
@@ -52,7 +52,6 @@ namespace :deploy do
         invoke "symfony:optimize"
         invoke "webapp:install"
         invoke "webapp:optimize"
-        invoke "webapp:manifest"
     end
 
     after :finished, 'php:restart_fpm'
