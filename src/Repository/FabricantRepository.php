@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Fabriquant;
+use App\Entity\Fabricant;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method Fabriquant|null find($id, $lockMode = null, $lockVersion = null)
- * @method Fabriquant|null findOneBy(array $criteria, array $orderBy = null)
- * @method Fabriquant[]    findAll()
- * @method Fabriquant[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Fabricant|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Fabricant|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Fabricant[]    findAll()
+ * @method Fabricant[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class FabriquantRepository extends ServiceEntityRepository
+class FabricantRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Fabriquant::class);
+        parent::__construct($registry, Fabricant::class);
     }
 
     // /**
-    //  * @return Fabriquant[] Returns an array of Fabriquant objects
+    //  * @return Fabricant[] Returns an array of Fabricant objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class FabriquantRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Fabriquant
+    public function findOneBySomeField($value): ?Fabricant
     {
         return $this->createQueryBuilder('f')
             ->andWhere('f.exampleField = :val')
