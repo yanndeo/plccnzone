@@ -28,20 +28,22 @@ class Category
      */
     private $description;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Fabricant", mappedBy="category")
-     */
-    private $fabricants;
+    
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="categories")
      */
     private $Products;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Fabricant", inversedBy="categories")
+     */
+    private $fabricants;
+
     public function __construct()
     {
-        $this->fabricants = new ArrayCollection();
         $this->Products = new ArrayCollection();
+        $this->fabricants = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -73,36 +75,7 @@ class Category
         return $this;
     }
 
-    /**
-     * @return Collection|Fabricant[]
-     */
-    public function getFabricants(): Collection
-    {
-        return $this->fabricants;
-    }
-
-    public function addFabricant(Fabricant $fabricant): self
-    {
-        if (!$this->fabricants->contains($fabricant)) {
-            $this->fabricants[] = $fabricant;
-            $fabricant->setCategory($this);
-        }
-
-        return $this;
-    }
-
-    public function removeFabricant(Fabricant $fabricant): self
-    {
-        if ($this->fabricants->contains($fabricant)) {
-            $this->fabricants->removeElement($fabricant);
-            // set the owning side to null (unless already changed)
-            if ($fabricant->getCategory() === $this) {
-                $fabricant->setCategory(null);
-            }
-        }
-
-        return $this;
-    }
+   
 
     /**
      * @return Collection|Product[]
@@ -125,6 +98,32 @@ class Category
     {
         if ($this->Products->contains($product)) {
             $this->Products->removeElement($product);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Fabricant[]
+     */
+    public function getFabricants(): Collection
+    {
+        return $this->fabricants;
+    }
+
+    public function addFabricant(Fabricant $fabricant): self
+    {
+        if (!$this->fabricants->contains($fabricant)) {
+            $this->fabricants[] = $fabricant;
+        }
+
+        return $this;
+    }
+
+    public function removeFabricant(Fabricant $fabricant): self
+    {
+        if ($this->fabricants->contains($fabricant)) {
+            $this->fabricants->removeElement($fabricant);
         }
 
         return $this;

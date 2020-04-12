@@ -34,17 +34,20 @@ class Fabricant
     private $products;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="fabricants")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Category", mappedBy="fabricants")
      */
-    private $category;
-
-
-
+    private $categories;
 
     
+
+
+
+
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -107,15 +110,33 @@ class Fabricant
         return $this;
     }
 
-    public function getCategory(): ?Category
+    /**
+     * @return Collection|Category[]
+     */
+    public function getCategories(): Collection
     {
-        return $this->category;
+        return $this->categories;
     }
 
-    public function setCategory(?Category $category): self
+    public function addCategory(Category $category): self
     {
-        $this->category = $category;
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+            $category->addFabricant($this);
+        }
 
         return $this;
     }
+
+    public function removeCategory(Category $category): self
+    {
+        if ($this->categories->contains($category)) {
+            $this->categories->removeElement($category);
+            $category->removeFabricant($this);
+        }
+
+        return $this;
+    }
+
+  
 }
