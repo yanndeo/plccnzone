@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -65,6 +66,11 @@ class Product
     public function getLibelle(): ?string
     {
         return $this->libelle;
+    }
+
+    public function getSlug()
+    {
+        return (new Slugify())->slugify($this->libelle);
     }
 
     public function setLibelle(string $libelle): self

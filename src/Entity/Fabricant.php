@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -58,6 +59,11 @@ class Fabricant
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    public function getSlug()
+    {
+        return (new Slugify())->slugify($this->name);
     }
 
     public function setName(string $name): self
