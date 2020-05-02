@@ -20,7 +20,11 @@
         <meta
         charset="UTF-8">
         <!-- Site Title -->
-        <title>{% block title %}Welcome!{% endblock %}</title>
+<title>
+	{% block title %} {{platform_name}}
+	{% endblock %}
+</title>
+
         {% block stylesheets %}
             <link rel="stylesheet" href="{{asset('css/linearicons.css')}} ">
             <link rel="stylesheet" href="{{asset('css/font-awesome.min.css') }} ">
@@ -54,10 +58,10 @@
                         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                             <ul class="nav navbar-nav menu_nav ml-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Home</a>
+                                    <a class="nav-link" href="{{ path('home') }}">Accueil</a>
                                 </li>
                                 <li class="nav-item submenu dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fabricants</a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
                                             <a class="nav-link" href="category.html">Shop Category</a>
@@ -76,6 +80,10 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('products') }}">Nos produits</a>
+                                </li>
+
                                 <li class="nav-item submenu dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
                                     <ul class="dropdown-menu">
@@ -244,8 +252,9 @@
             {# <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script> #}
             <script src="{{asset('js/gmaps.min.js')}}"></script>
             <script src="{{asset('js/main.js')}}"></script>
-
             {{ encore_entry_script_tags('app') }}
+
+
         {% endblock %}
     </body>
 </html>

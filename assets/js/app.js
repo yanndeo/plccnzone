@@ -1,14 +1,52 @@
-/*
- * Welcome to your app's main JavaScript file!
- *
- * We recommend including the built version of this JavaScript file
- * (and its CSS file) in your base layout (base.html.twig).
- */
 
-// any CSS you import will output into a single css file (app.css in this case)
 import '../css/app.css';
+import React,{useState, useEffect} from 'react';
+import ReactDOM from 'react-dom';
+//Component
+import Category from './components/category/index';
+import Product from './components/product/index';
+import Search from "./components/search/index";
+import Pub from "./components/pub/index";
+import Newsletter from "./components/newsletter/index";
 
-// Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
-// import $ from 'jquery';
+//API
+import { _getDefaultDataApi } from './actions/index';
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+
+
+const App = () => {
+
+    const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
+
+    useEffect(()=>{
+        _getDefaultDataApi()
+                .then((res)=>{
+                    setProducts(res.modifiedDataProducts);
+                    setCategories(res.categories);
+                });
+    },[]);
+
+
+   
+
+    return (
+        
+        <div className="row">
+            <div div className="col-lg-4" >
+                <div className="blog_right_sidebar">
+                    <Search/>
+                    <Pub/>
+                    <Category data={categories} />
+                    <Newsletter/>
+                    
+                </div>
+            </div>
+            <div div className="col-lg-8" >
+                <Product data={products} />
+            </div>
+        </div>
+    )
+}
+
+ReactDOM.render( <App/> , document.getElementById('root'));

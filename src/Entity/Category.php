@@ -3,9 +3,10 @@
 namespace App\Entity;
 
 use Cocur\Slugify\Slugify;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
@@ -16,11 +17,15 @@ class Category
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("product:read")
+     * @Groups("category:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("product:read")
+     * @Groups("category:read")
      */
     private $name;
 
@@ -100,6 +105,16 @@ class Category
         return $this;
     }
 
+    /**
+     * Renvoie le nombre de produits associer
+     * @return integer
+     * @Groups("category:read")
+     */
+    public function getCountProducts():int
+    {
+        return count($this->Products);
+    }
+    
     public function removeProduct(Product $product): self
     {
         if ($this->Products->contains($product)) {

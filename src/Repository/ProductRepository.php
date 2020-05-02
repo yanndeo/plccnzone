@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Product;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Product|null find($id, $lockMode = null, $lockVersion = null)
@@ -47,4 +48,16 @@ class ProductRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+
+    
+    public function findAllPb($page, $limit)
+    {
+        $query = $this->createQueryBuilder('p')
+            ->getQuery()
+            ->setFirstResult(($page - 1) * $limit)
+            ->setMaxResults($limit);
+        return new Paginator($query);
+    }
 }

@@ -3,9 +3,10 @@
 namespace App\Entity;
 
 use Cocur\Slugify\Slugify;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
@@ -16,16 +17,19 @@ class Product
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("product:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("product:read")
      */
     private $libelle;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("product:read")
      */
     private $reference;
 
@@ -42,11 +46,13 @@ class Product
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Fabricant", inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("product:read")
      */
     private $fabricant;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Category", mappedBy="Products")
+     * @Groups("product:read")
      */
     private $categories;
 

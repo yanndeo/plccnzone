@@ -1,3 +1,9 @@
-body {
-    /* background-color: salmon; */
+.table thead {
+    background-color: #ffba00;
+    color: #fff;
+    border: 0;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #FAFAFF!important
 }
