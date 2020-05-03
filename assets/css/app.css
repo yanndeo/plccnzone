@@ -7,3 +7,11 @@
 table tbody tr:nth-child(odd) {
     background-color: #FAFAFF!important
 }
+
+
+.pagination > li.page-item .page-link {
+    color: gray !important;
+    background-color: #fff!important;
+    border-color: #fff !important;
+    border: 0!important;
+}

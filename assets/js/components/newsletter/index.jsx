@@ -6,7 +6,7 @@ const Index = () => {
     return (
         <aside className="single-sidebar-widget newsletter_widget">
 			<h4 className="widget_title">Newsletter</h4>
-			<p>Rester au courant des produits produits à tout instant.</p>
+			<p>Rester au courant de nouveaux équipements à disposition à tout instant.</p>
 			<div className="form-group d-flex flex-row">
 			<div className="input-group">
 				<div className="input-group-prepend">
