@@ -7,18 +7,20 @@ export const _getDefaultDataApi = async() =>{
     try {
 
       let {data:{categories, products, fabricants}} = await axios.get(`/api/default-data`); ; 
-     
+
       const modifiedDataProducts = products.map((product) => ({
            id: product.id,
-           libelle: product.libelle,
+           libelle: capitalize(product.libelle),
            reference: product.reference,
-           fabricant: product.fabricant.name
+           fabricant: product.fabricant.name,
+           categories: product.categories.map(cat => cat.id) //donne moi uniquement que les id
        }));
 
-       return {categories, modifiedDataProducts, fabricants} ;
+       return { categories, modifiedDataProducts, fabricants } ;
+
 
     } catch (error) {
-        console.log(error);
+        console.log('_getDefaultDataApi', error);
     }
 }
 

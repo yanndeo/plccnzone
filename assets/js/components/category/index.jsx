@@ -1,16 +1,33 @@
 import React from 'react'
-import Item from './item';
 import Skeleton from 'react-loading-skeleton';
 
 
 
-const Index = (props) => {
+const Index = ({data, myFilterFunctionCallback } ) => {
 
-	const {data} = props;
+
+	/**
+	 * Affiche la liste des
+	 * categories ou le skeleton
+	 */
 	let renderData;
 
 	if(data && data.length > 0){
-		renderData =  data.map((category,i) => { return <Item key = {i}  category={category} /> }) 
+		renderData = data.map((category, i) => {
+		   let {id, name, countProducts } = category
+				return (
+					<li key={i}>
+						<a href='#'
+						id={id} 
+						className="d-flex justify-content-between"
+						onClick={(e) => myFilterFunctionCallback(e,id)}>
+							<p>{name}</p>
+							<p>{countProducts}</p>  
+						{/*//est ce important en front */}						
+						</a>
+					</li>
+				) }) ;
+
 	}else{
 		renderData = <Skeleton count={6} /> ;
 	}

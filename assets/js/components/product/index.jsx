@@ -17,6 +17,7 @@ class Index extends Component {
         }
       };
 
+      //CUMTOMIZE LA SELECTION DE LA ROW
       this.selectRow = {
         mode: 'radio',
         bgColor: 'orange',
@@ -27,42 +28,37 @@ class Index extends Component {
         }
       };
 
+
+      /* OPTIONS */
+       this.options = {
+        defaultSortName: 'libelle', // default sort column name
+        defaultSortOrder: 'asc', // default sort order
+        page: 1,
+        sizePerPage: 21,
+        onRowClick: function (row, rowIndex, columnIndex, event) {}
+      };
+
     }
+
+
+     
 
 
 
     render () {
 
-      const {data, searchValue} = this.props;
+      const {data, searchValue, filterCatValue} = this.props;
+      console.log('filterCatValue', filterCatValue)
 
-
-
-      /* OPTIONS */
-        const options = {
-            page: 1,
-            sizePerPage: 21,
-            onRowClick: function(row, rowIndex, columnIndex, event){
-            }
-        };
-
-
-        /* Personnalisation d'un champs */
-        function colFormatter(cell, row){
+      /* Personalization d'une row */
+      const colFormatter = (cell, row) =>{
             return (
                 <span>
                     <a href={`/article/${row.slug}-${row.id}`} style={{textDecoration:'none', color:'grey'}}> {cell} </a>
                 </span>
-            )
-        }
+            ) 
+      }
 
-
-        /* function priceFormatter(cell, row){
-            return  brand.name ;
-        }
-
-        function truncateText(cell, row){
-              description.substring(0, 13)
-        } */
 
 
 
@@ -70,15 +66,20 @@ class Index extends Component {
         if(data && data.length > 0){
 
             var products = data;
+            
+            if(filterCatValue){
+               products = products.filter(item => (item.categories.includes(filterCatValue)));
+
+            }
 
             if (searchValue) {
-               products = products.filter((pb) => pb.libelle.indexOf(capitalize(searchValue)) != -1)
+               products = products.filter((pb) => pb?.libelle.indexOf(capitalize(searchValue)) != -1)
             }
 
             renderData = (
               <BootstrapTable 
                     data={products} striped hover
-                    options ={options}
+                    options ={this.options}
                     pagination={ true }
                     search={ false }
                     multiColumnSearch={ true }

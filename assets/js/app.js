@@ -17,10 +17,13 @@ import { _getDefaultDataApi } from './actions/index';
 
 const App = () => {
 
+    //STATE
     const [products, setProducts] = useState([]);
     const [searchValue, setSearchValue] = useState('');
+    const [filterCatValue, setFilterCatValue] = useState('')
     const [categories, setCategories] = useState([]);
 
+    //COMPONENTDIDMOUNT
     useEffect(()=>{
         _getDefaultDataApi()
             .then((res)=>{
@@ -35,29 +38,45 @@ const App = () => {
 
     /**
      * @param {*} value 
+     * Enregistre le mot clé (search_bar) comme
+     * valeur dans le state
      */
     const mySearchFunction = (value) => {
         setSearchValue(value);
     } 
 
 
-
-
+    /**
+     * Définir l'id de la catégorie dans le state
+     * pour ensuite filtrer les produits du tableau
+     * en fonction
+     */
+    const myFilterFunction = (e,catID) => {
+        e.preventDefault();
+        setFilterCatValue(catID);
+    }
 
 
     return (
         
         <div className="row">
-            <div div className="col-lg-4" >
+            <div className="col-lg-4" >
                 <div className="blog_right_sidebar">
-                    <Search mySearchFunctionCallback={(value) => mySearchFunction(value) } />
+                    <Search 
+                        mySearchFunctionCallback={(value) => mySearchFunction(value) } />
                     <Pub/>
-                    <Category data={categories} />
+                    <Category 
+                        data={categories} 
+                        myFilterFunctionCallback = {(e,catID) => myFilterFunction(e,catID)}  />
                     <Newsletter/>
                 </div>
             </div>
-            <div div className="col-lg-8" >
-                <Product data={products} searchValue={searchValue} />
+
+            <div className="col-lg-8" >
+                <Product
+                    data={products} 
+                    searchValue= {searchValue} 
+                    filterCatValue = {filterCatValue} />
             </div>
         </div>
     )
