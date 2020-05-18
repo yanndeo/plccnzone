@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Skeleton from 'react-loading-skeleton';
-import {capitalize } from '../../actions/index';
+import { capitalize, slugify } from '../../actions/index';
 
 
 
@@ -52,9 +52,10 @@ class Index extends Component {
 
       /* Personalization d'une row */
       const colFormatter = (cell, row) =>{
+        const slugifyText = slugify(row.libelle)
             return (
                 <span>
-                    <a href={`/article/${row.slug}-${row.id}`} style={{textDecoration:'none', color:'grey'}}> {cell} </a>
+                    <a href={`/article/${slugifyText}/${row.id}`} style={{textDecoration:'none', color:'grey'}}> {cell} </a>
                 </span>
             ) 
       }
@@ -69,7 +70,6 @@ class Index extends Component {
             
             if(filterCatValue){
                products = products.filter(item => (item.categories.includes(filterCatValue)));
-
             }
 
             if (searchValue) {

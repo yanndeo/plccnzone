@@ -11,7 +11,7 @@ import Pub from "./components/pub/index";
 import Newsletter from "./components/newsletter/index";
 
 //API
-import { _getDefaultDataApi } from './actions/index';
+import { _getDefaultDataApi, slugify } from './actions/index';
 
 
 
@@ -25,6 +25,7 @@ const App = () => {
 
     //COMPONENTDIDMOUNT
     useEffect(()=>{
+        
         _getDefaultDataApi()
             .then((res)=>{
                 setProducts(res.modifiedDataProducts);
@@ -78,6 +79,8 @@ const App = () => {
                     searchValue= {searchValue} 
                     filterCatValue = {filterCatValue} />
             </div>
+
+            
         </div>
     )
 }
