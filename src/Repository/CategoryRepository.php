@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Category;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Helpers\FunctionsQueryHelper;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Category|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,9 +15,13 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  */
 class CategoryRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private $functionsQueryHelper;
+
+    public function __construct(ManagerRegistry $registry, FunctionsQueryHelper $functionsQueryHelper)
     {
         parent::__construct($registry, Category::class);
+
+        $this->functionsQueryHelper = $functionsQueryHelper;
     }
 
     // /**
@@ -47,4 +52,14 @@ class CategoryRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+
+    /**
+     * Return le nombre d'item en base de donnée
+     */
+    public function findCountData()
+    {
+        return $this->functionsQueryHelper->findCountData(__NAMESPACE__ . '\\', get_class($this));
+    }
 }

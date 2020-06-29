@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Fabricant;
+use App\Helpers\FunctionsHelper;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -12,8 +13,11 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  * @method Fabricant[]    findAll()
  * @method Fabricant[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class FabricantRepository extends ServiceEntityRepository
+class FabricantRepository extends ServiceEntityRepository 
 {
+    //use FunctionsHelper;
+    
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Fabricant::class);
@@ -47,4 +51,9 @@ class FabricantRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+    
+
+    
 }

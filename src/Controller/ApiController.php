@@ -30,6 +30,8 @@ class ApiController extends AbstractController
     }
 
 
+
+
     /**
      * @Route("/api/default-data/{page<\d+>?1}", name="api_default_data", methods= {"GET"})
      */
@@ -76,8 +78,6 @@ class ApiController extends AbstractController
             $res = new JsonResponse(['message' => $e->getMessage(), 'status' => 400], 400, [], false);
 
         }
-
-    
 
 
         return $res;

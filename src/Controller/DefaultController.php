@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/test", name="home")
+     * @Route("/", name="home")
      */
     public function index()
     {
@@ -34,7 +34,6 @@ class DefaultController extends AbstractController
      */
     public function showProduct(string $slug, Product $product)
     {
-       // dd($product);
         return $this->render('product/show.html.twig',compact('product'));
     }
     

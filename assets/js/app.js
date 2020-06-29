@@ -23,15 +23,18 @@ const App = () => {
     const [filterCatValue, setFilterCatValue] = useState('')
     const [categories, setCategories] = useState([]);
 
+
+
+    
     //COMPONENTDIDMOUNT
     useEffect(()=>{
-        
         _getDefaultDataApi()
             .then((res)=>{
                 setProducts(res.modifiedDataProducts);
                 setCategories(res.categories);
             });
     },[]);
+
 
 
 
@@ -61,14 +64,14 @@ const App = () => {
     return (
         
         <div className="row">
-            <div className="col-lg-4" >
+            <div className="col-lg-4">
                 <div className="blog_right_sidebar">
                     <Search 
                         mySearchFunctionCallback={(value) => mySearchFunction(value) } />
                     <Pub/>
                     <Category 
                         data={categories} 
-                        myFilterFunctionCallback = {(e,catID) => myFilterFunction(e,catID)}  />
+                        myFilterFunctionCallback = {(e,catID) => myFilterFunction(e,catID)} />
                     <Newsletter/>
                 </div>
             </div>

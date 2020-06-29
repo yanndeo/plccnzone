@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Product;
+use App\Helpers\FunctionsQueryHelper;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -15,9 +16,13 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
  */
 class ProductRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+
+    private $functionsQueryHelper;
+
+    public function __construct(ManagerRegistry $registry , FunctionsQueryHelper $functionsQueryHelper)
     {
         parent::__construct($registry, Product::class);
+        $this->functionsQueryHelper = $functionsQueryHelper;
     }
 
     // /**
@@ -51,7 +56,10 @@ class ProductRepository extends ServiceEntityRepository
 
 
 
-    
+    /**
+     * @param [type] $page
+     * @param [type] $limit
+     */
     public function findAllPb($page, $limit)
     {
         $query = $this->createQueryBuilder('p')
@@ -60,4 +68,20 @@ class ProductRepository extends ServiceEntityRepository
             ->setMaxResults($limit);
         return new Paginator($query);
     }
+
+
+
+
+    /**
+     * Return le nombre d'item en base de donnée
+     */
+    public function findCountData()
+    {
+        $namespace = __NAMESPACE__ . '\\';
+
+        return $this->functionsQueryHelper->findCountData($namespace, get_class($this));
+    }
+
+
+
 }

@@ -9,15 +9,14 @@ export const _getDefaultDataApi = async() =>{
       let {data:{categories, products, fabricants}} = await axios.get(`/api/default-data`); ; 
 
       const modifiedDataProducts = products.map((product) => ({
-           id: product.id,
-           libelle: capitalize(product.libelle),
-           reference: product.reference,
-           fabricant: product.fabricant.name,
-           categories: product.categories.map(cat => cat.id) //donne moi uniquement que les id
-       }));
+            id: product.id,
+            libelle: capitalize(product.libelle),
+            reference: product.reference,
+            fabricant: product.fabricant.name,
+            categories: product.categories.map(cat => cat.id) //donne moi uniquement que les id
+      }));
 
        return { categories, modifiedDataProducts, fabricants } ;
-
 
     } catch (error) {
         console.log('_getDefaultDataApi', error);
@@ -34,6 +33,8 @@ export const capitalize = (s) => {
 
 
 
+
+//Slugify
 export const slugify = (text) => {
     return text
             .toString() // Cast to string

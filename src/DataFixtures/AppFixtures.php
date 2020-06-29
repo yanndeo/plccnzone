@@ -20,7 +20,6 @@ class AppFixtures extends Fixture
         if($nb_items > 0){
             $rand_keys = array_rand($tabElements, $nb_items);
             return $rand_keys;
-
         }
 
         return 0;
@@ -50,8 +49,8 @@ class AppFixtures extends Fixture
                       ->setDescription($faker->sentence($nbWords = 24, $variableNbWords = true));
 
             $categories = $manager->getRepository(Category::class)->findAll();
+
             $keys = $this->randomElements($categories);
-            //var_dump($keys);die();
                 if(is_array($keys) && count($keys) > 1){
                     foreach ($keys as $k) {
                         $fabricant->addCategory($categories[$k]);
@@ -63,13 +62,14 @@ class AppFixtures extends Fixture
             $manager->persist($fabricant);
 
             for($p = 0 ; $p < mt_rand(3, 50); $p ++){ 
-
                 $product = new Product();
                 $product->setLibelle($faker->jobTitle)
                         ->setDescription($faker->sentences($bn = 8, $asText = true))
                         ->setReference($faker->vat(false))
-                        ->setCreatedAt($faker->dateTimeBetween('-3 months'))
-                        ->setFabricant($fabricant);
+                        ->setFabricant($fabricant)
+                        ->setStatus($faker->numberBetween(0, count(Product::STATUS) - 1))
+                        ->setState($faker->numberBetween(0, count(Product::STATE) - 1));
+
 
                 $categories = $manager->getRepository(Category::class)->findAll();
                 $keys = $this->randomElements($categories);

@@ -81,7 +81,7 @@ class Index extends Component {
                     data={products} striped hover
                     options ={this.options}
                     pagination={ true }
-                    search={ false }
+                    search={false}
                     multiColumnSearch={ true }
                     selectRow={this.selectRow }
                     rowEvents={this.rowEvent}>

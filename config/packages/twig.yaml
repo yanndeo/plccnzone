@@ -5,3 +5,4 @@ twig:
     exception_controller: null
     globals:
         platform_name : "%env(PLATFORM_NAME)%"
+    form_themes: ['bootstrap_4_layout.html.twig']

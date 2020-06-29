@@ -18,9 +18,9 @@ const Index = ({data, myFilterFunctionCallback } ) => {
 				return (
 					<li key={i}>
 						<a href='#'
-						id={id} 
-						className="d-flex justify-content-between"
-						onClick={(e) => myFilterFunctionCallback(e,id)}>
+						   id={id} 
+						   className="d-flex justify-content-between"
+						   onClick={(e) => myFilterFunctionCallback(e,id)}>
 							<p>{name}</p>
 							<p>{countProducts}</p>  
 						{/*//est ce important en front */}						

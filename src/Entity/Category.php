@@ -34,28 +34,44 @@ class Category
      */
     private $description;
 
-    
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="categories")
+     * @ORM\Column(type="string", length=255)
+     * @Groups("category:read")
      */
-    private $Products;
+    private $reference ;
+
+    
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Fabricant", inversedBy="categories")
      */
     private $fabricants;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Product", mappedBy="categories")
+     */
+    private $products;
+
+
+
     public function __construct()
     {
-        $this->Products = new ArrayCollection();
         $this->fabricants = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
+
+
+
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
+
+
+    //////////////// HANDLER NAME CATEGORY /////////////////////////
 
     public function getName(): ?string
     {
@@ -74,6 +90,10 @@ class Category
         return $this;
     }
 
+
+    //////////////// HANDLER DESCRIPTION CATEGORY /////////////////////////
+
+
     public function getDescription(): ?string
     {
         return $this->description;
@@ -86,43 +106,24 @@ class Category
         return $this;
     }
 
-   
 
-    /**
-     * @return Collection|Product[]
-     */
-    public function getProducts(): Collection
-    {
-        return $this->Products;
-    }
-
-    public function addProduct(Product $product): self
-    {
-        if (!$this->Products->contains($product)) {
-            $this->Products[] = $product;
-        }
-
-        return $this;
-    }
 
     /**
      * Renvoie le nombre de produits associer
      * @return integer
      * @Groups("category:read")
      */
-    public function getCountProducts():int
+    public function getCountProducts(): int
     {
-        return count($this->Products);
+        return count($this->products);
     }
-    
-    public function removeProduct(Product $product): self
-    {
-        if ($this->Products->contains($product)) {
-            $this->Products->removeElement($product);
-        }
 
-        return $this;
-    }
+
+
+    
+
+
+    //////////////// HANDLER FABRICANT CATEGORY /////////////////////////
 
     /**
      * @return Collection|Fabricant[]
@@ -145,6 +146,63 @@ class Category
     {
         if ($this->fabricants->contains($fabricant)) {
             $this->fabricants->removeElement($fabricant);
+        }
+
+        return $this;
+    }
+
+
+    //////////////// HANDLER REFERENCE CATEGORY /////////////////////////
+
+
+    /**
+     * Get the value of reference
+     */ 
+    public function getReference(): ?string
+    {   
+        return $this->reference;
+    }
+
+
+    /**
+     * Set the value of reference
+     *
+     * @return  self
+     */ 
+    public function setReference( string $reference)
+    {
+        $this->reference = $reference;
+        return $this;
+    }
+
+
+
+    //////////////// HANDLER PRODUCT :RELATION /////////////////////////
+
+
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function addProduct(Product $product): self
+    {
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+            $product->addCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduct(Product $product): self
+    {
+        if ($this->products->contains($product)) {
+            $this->products->removeElement($product);
+            $product->removeCategory($this);
         }
 
         return $this;
